@@ -1,5 +1,5 @@
 <template>
-  <div class="editor clearfix">
+  <div class="editor clearfix" v-show="show.editor">
     <nav>
       <ul>
         <li v-for="(item, index) in icon" :class="{'active': currentIndex===index}" @click="choosePanel(index)">
@@ -42,6 +42,9 @@
       },
       experiences:{
         type: Array
+      },
+      show: {
+        type: Object
       }
     },
     data() {
@@ -69,16 +72,16 @@
     float: left;
     width: 40%;
     height: calc(100% - 80px);
+    background-color: #fff;
   }
   nav {
     float: left;
     height: 100%;
     width: 80px;
-    border-top: 1px solid #444;
   }
   nav>ul {
     width: 80px;
-    background-color: #333;
+    background-color: #111;
     color: #fff;
     height: 100%;
   }

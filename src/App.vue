@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="clearfix">
-    <top-bar></top-bar>
-    <editor :message="message" :skills="skills" :experiences="experiences" :educations="educations" :prices="prices"></editor>
-    <preview :message="message" :skills="skills" :experiences="experiences" :educations="educations" :prices="prices"></preview>
+    <top-bar :show="show"></top-bar>
+    <editor :show="show" :message="message" :skills="skills" :experiences="experiences" :educations="educations" :prices="prices"></editor>
+    <preview :show="show" :message="message" :skills="skills" :experiences="experiences" :educations="educations" :prices="prices"></preview>
   </div>
 </template>
 
@@ -47,7 +47,12 @@ export default {
           company: '',
           works: ''
         }
-      ]
+      ],
+      show: {
+        topBar: true,
+        editor: true,
+        preview: false
+      }
     }
   }
 }
@@ -59,5 +64,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  background-color: #ddd;
+  overflow: auto;
 }
 </style>
